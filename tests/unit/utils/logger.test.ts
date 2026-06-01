@@ -1,15 +1,7 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { logger, setTestMode, type Logger } from '../../../src/utils/logger';
+import { describe, it, expect } from 'vitest';
+import { logger, type Logger } from '../../../src/utils/logger';
 
 describe('logger', () => {
-  beforeEach(() => {
-    setTestMode();
-  });
-
-  afterEach(() => {
-    // Reset test mode
-  });
-
   it('should create a logger instance', () => {
     expect(logger).toBeDefined();
     expect(typeof logger.info).toBe('function');
