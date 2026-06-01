@@ -1,11 +1,12 @@
-import pino from 'pino';
-import os from 'os';
+import pino from "pino";
+import os from "os";
 
 export const logger = pino({
-  level: process.env.DEBUG ? 'debug' : 'info',
-  transport: process.env.NODE_ENV === 'test'
-    ? { target: 'pino/file', options: { destination: os.devNull } }
-    : undefined,
+  level: process.env.DEBUG ? "debug" : "info",
+  transport:
+    process.env.NODE_ENV === "test"
+      ? { target: "pino/file", options: { destination: os.devNull } }
+      : undefined,
   base: {},
   timestamp: pino.stdTimeFunctions.isoTime,
   formatters: {

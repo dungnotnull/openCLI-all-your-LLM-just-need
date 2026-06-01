@@ -1,6 +1,6 @@
-import keytar from 'keytar';
+import keytar from "keytar";
 
-const SERVICE_NAME = 'opencli';
+const SERVICE_NAME = "opencli";
 
 export async function setApiKey(provider: string, key: string): Promise<void> {
   await keytar.setPassword(SERVICE_NAME, provider, key);
@@ -23,5 +23,5 @@ export function getApiKeyOrEnv(provider: string, envVar: string): string | null 
 }
 
 export async function listProviders(): Promise<string[]> {
-  return ['deepseek', 'qwen', 'minimax', 'glm', 'kimi', 'devstral', 'ollama'];
+  return ["deepseek", "qwen", "minimax", "glm", "kimi", "devstral", "ollama"];
 }

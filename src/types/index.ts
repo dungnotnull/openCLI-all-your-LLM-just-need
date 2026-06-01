@@ -1,7 +1,7 @@
 // === Core Agent Types ===
 
 export interface Message {
-  role: 'system' | 'user' | 'assistant' | 'tool';
+  role: "system" | "user" | "assistant" | "tool";
   content: string;
   toolCalls?: ToolCall[];
   toolCallId?: string;
@@ -20,7 +20,7 @@ export interface ToolResult {
 }
 
 export interface AgentEvent {
-  type: 'delta' | 'tool_call' | 'tool_result' | 'complete' | 'error';
+  type: "delta" | "tool_call" | "tool_result" | "complete" | "error";
   data: unknown;
 }
 
@@ -35,14 +35,14 @@ export interface ChatOptions {
 }
 
 export interface Delta {
-  type: 'content' | 'tool_call' | 'done';
+  type: "content" | "tool_call" | "done";
   content?: string;
   toolCall?: ToolCall;
 }
 
 export interface ChatResponse {
   finalMessage: Message;
-  stopReason: 'end_turn' | 'max_tokens' | 'error';
+  stopReason: "end_turn" | "max_tokens" | "error";
   inputTokens: number;
   outputTokens: number;
 }
@@ -60,10 +60,7 @@ export abstract class ModelProvider {
   abstract get name(): string;
   abstract get models(): ModelDescriptor[];
 
-  abstract chat(
-    messages: Message[],
-    options: ChatOptions
-  ): AsyncGenerator<Delta>;
+  abstract chat(messages: Message[], options: ChatOptions): AsyncGenerator<Delta>;
 
   abstract countTokens(messages: Message[]): Promise<number>;
 
@@ -123,5 +120,5 @@ export interface CompressionStrategy {
     oldConversation: number;
   };
   episodicReconstruction: boolean;
-  pruningMode: 'sliding' | 'semantic' | 'adaptive';
+  pruningMode: "sliding" | "semantic" | "adaptive";
 }
