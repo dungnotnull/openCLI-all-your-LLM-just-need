@@ -5,15 +5,15 @@ import {
   ChatOptions,
   ModelDescriptor,
   ChatResponse,
-} from '../../../src/types';
+} from "../../../src/types";
 
 export class MockProvider extends ModelProvider {
   get id() {
-    return 'mock';
+    return "mock";
   }
 
   get name() {
-    return 'Mock Provider';
+    return "Mock Provider";
   }
 
   get models() {
@@ -21,8 +21,8 @@ export class MockProvider extends ModelProvider {
   }
 
   async *chat(_messages: Message[], _options: ChatOptions): AsyncGenerator<Delta> {
-    yield { type: 'content', content: 'Mock response' };
-    yield { type: 'done' };
+    yield { type: "content", content: "Mock response" };
+    yield { type: "done" };
   }
 
   async countTokens(_messages: Message[]): Promise<number> {
@@ -43,8 +43,8 @@ export class MockProvider extends ModelProvider {
 }
 
 export const mockModel: ModelDescriptor = {
-  id: 'mock-model',
-  name: 'Mock Model',
+  id: "mock-model",
+  name: "Mock Model",
   contextWindow: 10000,
   supportsTools: true,
   supportsImages: false,
@@ -53,10 +53,10 @@ export const mockModel: ModelDescriptor = {
 export function createMockChatResponse(content: string): ChatResponse {
   return {
     finalMessage: {
-      role: 'assistant',
+      role: "assistant",
       content,
     },
-    stopReason: 'end_turn',
+    stopReason: "end_turn",
     inputTokens: 10,
     outputTokens: content.length,
   };

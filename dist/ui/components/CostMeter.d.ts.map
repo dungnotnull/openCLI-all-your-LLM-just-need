@@ -1,0 +1,1 @@
+{"version":3,"file":"CostMeter.d.ts","sourceRoot":"","sources":["../../../src/ui/components/CostMeter.tsx"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AAEH,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,aAAa,CAAC;AAGlD,MAAM,WAAW,cAAe,SAAQ,cAAc;IACpD,WAAW,EAAE,MAAM,CAAC;IACpB,YAAY,EAAE,MAAM,CAAC;IACrB,SAAS,EAAE,MAAM,CAAC;CACnB;AAED;;;;GAIG;AACH,wBAAgB,SAAS,CAAC,KAAK,EAAE,cAAc,GAAG,MAAM,CAUvD"}

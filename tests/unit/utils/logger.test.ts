@@ -1,28 +1,28 @@
-import { describe, it, expect } from 'vitest';
-import { logger, type Logger } from '../../../src/utils/logger';
+import { describe, it, expect } from "vitest";
+import { logger, type Logger } from "../../../src/utils/logger";
 
-describe('logger', () => {
-  it('should create a logger instance', () => {
+describe("logger", () => {
+  it("should create a logger instance", () => {
     expect(logger).toBeDefined();
-    expect(typeof logger.info).toBe('function');
-    expect(typeof logger.error).toBe('function');
-    expect(typeof logger.debug).toBe('function');
+    expect(typeof logger.info).toBe("function");
+    expect(typeof logger.error).toBe("function");
+    expect(typeof logger.debug).toBe("function");
   });
 
-  it('should export Logger type', () => {
+  it("should export Logger type", () => {
     type LoggerType = Logger;
     expect(true).toBe(true);
   });
 
-  it('should have info level by default', () => {
-    expect(() => logger.info('test message')).not.toThrow();
+  it("should have info level by default", () => {
+    expect(() => logger.info("test message")).not.toThrow();
   });
 
-  it('should support debug calls', () => {
-    expect(() => logger.debug({ foo: 'bar' }, 'debug message')).not.toThrow();
+  it("should support debug calls", () => {
+    expect(() => logger.debug({ foo: "bar" }, "debug message")).not.toThrow();
   });
 
-  it('should support error calls', () => {
-    expect(() => logger.error(new Error('test error'), 'error message')).not.toThrow();
+  it("should support error calls", () => {
+    expect(() => logger.error(new Error("test error"), "error message")).not.toThrow();
   });
 });

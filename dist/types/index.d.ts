@@ -3,6 +3,11 @@ export interface Message {
     content: string;
     toolCalls?: ToolCall[];
     toolCallId?: string;
+    images?: ImageInput[];
+}
+export interface ImageInput {
+    data: string;
+    mediaType: string;
 }
 export interface ToolCall {
     id: string;
@@ -15,7 +20,7 @@ export interface ToolResult {
     isError?: boolean;
 }
 export interface AgentEvent {
-    type: "delta" | "tool_call" | "tool_result" | "complete" | "error";
+    type: "delta" | "tool_call" | "tool_result" | "complete" | "error" | "compression";
     data: unknown;
 }
 export interface ChatOptions {
@@ -24,11 +29,17 @@ export interface ChatOptions {
     maxTokens?: number;
     enableThinking?: boolean;
     retainChainOfThought?: boolean;
+    model?: string;
 }
 export interface Delta {
-    type: "content" | "tool_call" | "done";
+    type: "content" | "tool_call" | "done" | "usage" | "tool_call_start" | "tool_call_delta";
     content?: string;
     toolCall?: ToolCall;
+    toolCallId?: string;
+    toolName?: string;
+    toolInput?: string;
+    inputTokens?: number;
+    outputTokens?: number;
 }
 export interface ChatResponse {
     finalMessage: Message;
@@ -74,6 +85,7 @@ export interface Session {
     appendMessage(message: Message): void;
     appendToolResult(toolCallId: string, result: ToolResult): void;
     isComplete(): boolean;
+    compressIfNeeded(): Promise<CompressionMetrics | undefined>;
 }
 export interface CompressionStrategy {
     maxTokenBudget: number;
@@ -86,5 +98,12 @@ export interface CompressionStrategy {
     };
     episodicReconstruction: boolean;
     pruningMode: "sliding" | "semantic" | "adaptive";
+}
+export interface CompressionMetrics {
+    beforeTokens: number;
+    afterTokens: number;
+    reduction: number;
+    reductionPercent: number;
+    mode: string;
 }
 //# sourceMappingURL=index.d.ts.map
