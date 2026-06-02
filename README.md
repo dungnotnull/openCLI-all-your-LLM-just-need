@@ -531,21 +531,6 @@ opencli/
 
 ---
 
-## 📊 Comparison
-
-| Feature | OpenCLI | Claude Code | Gemini CLI | Aider |
-|---------|---------|-------------|------------|-------|
-| Multi-Provider | ✅ 12+ | ❌ 1 | ❌ 1 | ✅ 3+ |
-| Context Compression | ✅ | ✅ | ❌ | ✅ |
-| Cost Tracking | ✅ | ❌ | ❌ | ❌ |
-| Multi-Agent | ✅ | ❌ | ❌ | ❌ |
-| Docker Sandbox | ✅ | ❌ | ❌ | ❌ |
-| Open Source | ✅ | ❌ | ❌ | ✅ |
-| Local Models | ✅ | ❌ | ❌ | ✅ |
-| MCP Protocol | ✅ | ✅ | ❌ | ❌ |
-
----
-
 ## 🙏 Acknowledgments
 
 Built with inspiration from:
