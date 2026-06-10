@@ -1,7 +1,5 @@
-# OpenCLI
-
 <div align="center">
-
+<h1>OpenCLI</h1>
 **A unified, self-improving CLI agent optimized for open-source LLMs**
 
 [![npm version](https://badge.fury.io/js/opencli.svg)](https://www.npmjs.org/package/opencli)
